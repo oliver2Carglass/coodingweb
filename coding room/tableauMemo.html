@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="icon" type="image/png" href="image/casselesnoix.png" />
+  <title>Scores du Memory test 🧠</title>
+  <style>
+    #body{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .bg-black {
+      background-color: white;
+    }
+
+    .bg-red {
+      background-color: blue;
+    }
+  </style>
+  <script src =  "script.js"></script>
+  <link rel= "stylesheet" href="style.css">
+</head>
+<body>
+  <button class="menu" onclick="menu()"></button>
+  <div id="body">
+  <table id="data-table"></table>
+  </div>
+  <script>
+  
+   
+
+
+
+  function createTable() {
+
+    
+  // Récupérer les scores du stockage local
+  var scores = JSON.parse(localStorage.getItem('tableauMemo'));
+
+  
+
+  // recuperer l'élément de tableau
+  var table = document.getElementById('data-table');
+
+  // En-tête du tableau
+  var thead = document.createElement("thead");
+  var headerRow = document.createElement("tr");
+  var emptyHeaderCell = document.createElement("th");
+  headerRow.appendChild(emptyHeaderCell);
+
+  for (var j = 0; j < scores[0].length ; j++) {
+    var headerCell = document.createElement("th");
+    headerCell.textContent = "Temps " + (j + 1);
+    headerRow.appendChild(headerCell);
+  }
+
+  thead.appendChild(headerRow);
+  table.appendChild(thead);
+
+
+  // Parcourir les scores et générer les lignes et les cellules du tableau
+  for (var i = 0; i < scores.length; i++) {
+    var row = document.createElement('tr');
+    var rowHeaderCell = document.createElement("th");
+    rowHeaderCell.textContent = "Niv" + (i + 1);
+    row.appendChild(rowHeaderCell);
+
+    for (var j = 0; j < scores[i].length; j++) {
+      var cell = document.createElement('td');
+      
+      value=scores[i][j];
+      if (value === "0") {
+        cell.classList.add("bg-black");
+      } else if (value === "1") {
+        cell.classList.add("bg-red");
+      }
+      row.appendChild(cell);
+    }
+
+    table.appendChild(row);
+  }
+
+  
+}
+
+// Appeler la fonction pour générer le tableau
+createTable();
+
+
+
+
+/*
+
+
+  // Corps du tableau
+  var tbody = document.createElement("tbody");
+
+  scores.forEach((score, i) => {
+    var row = document.createElement("tr");
+
+    // En-tête de ligne sur le côté gauche
+    var rowHeaderCell = document.createElement("th");
+    rowHeaderCell.textContent = "Niv" + (i + 1);
+    row.appendChild(rowHeaderCell);
+
+    score.split("").forEach((value, j) => {
+      var cell = document.createElement("td");
+
+      if (value === "0") {
+        cell.classList.add("bg-black");
+      } else if (value === "1") {
+        cell.classList.add("bg-red");
+      }
+
+      row.appendChild(cell);
+    });
+
+    tbody.appendChild(row);
+  });
+
+  table.appendChild(tbody);
+}
+
+createScoreTable()*/
+  </script>
+</body>
+</html>

@@ -1,0 +1,269 @@
+/*parametres généraux*/
+body{
+    background-image: url("image/bodyBackground.jpg");
+}
+
+
+
+/*code relatif au menu de navigation */
+
+/* bouton des choix possibles*/
+.menuBut{
+  height: 60px;
+  width: 350px;
+  border: solid #4b4b4b 2px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/*bouton menu de navigation*/
+.menu{
+  height: 92px;
+  width: 97px;
+  background-image: url("image/menu.png");
+  background-size: cover ;
+}
+/* animation de ce bouton*/
+.menu:active{
+  animation : rotation linear infinite 1s;
+
+}
+
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  12.5% {
+    transform: rotate(45deg);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  37.5% {
+    transform: rotate(135deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  62.5% {
+    transform: rotate(225deg);
+  }
+  75% {
+    transform: rotate(270deg);
+  }
+  87.5% {
+    transform: rotate(315deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*division du menu*/
+.myDiv2{
+  position: fixed;
+   top: 100px;
+   bottom: 0;
+   left: 0;
+  
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border: solid #4b4b4b 2px;
+}
+/* fin du code relatif au menu*/
+/* fin des paramétres généraux*/
+
+
+
+
+
+
+
+
+/*gestion du jeu en lui même*/
+
+/*gestion du tableau du jeu */
+#Jeu.tr,td{
+    height: 80px;
+    width: 80px;
+    background-color: black;
+    border: solid 1px black;
+}
+
+/* #Jeu= id de l'element table*/
+#Jeu{
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+/*division du jeu */
+#jeuReflex{
+    
+    border: 15px groove #4b4b4b;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+}
+
+/* balise relative au score*/
+#scoring{
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 40px;
+    position: absolute;
+    top: 15px;
+    left: 45%;
+    text-decoration: underline;
+    color: #ac3235;
+    background-image: url("image/ligne.png");
+    padding: 10px;
+    border: solid 2px black;
+}
+
+/* bouton sauvegarder*/
+#save-button {
+  position: absolute;
+  top : 40%;
+  left: 5%;
+  width: 400px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: #ccc;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  /* Ajoutez ici des styles spécifiques au bouton save-button si nécessaire */
+}
+
+/*gestion du timer*/
+
+/* division relative au chronometre*/
+.chronometre {
+    position: absolute;
+    left: 80%;
+    top: 40%;
+    width: 120px;
+    height: 120px;  
+}
+
+/*division relative au contenu svg*/
+.progress-ring {
+position: relative;
+}
+
+/*paramètre lié au cercle faisant office de chronometre*/
+.progress-ring-circle {
+fill: #3dc1d3;
+stroke: #596275;
+stroke-width: 12;
+stroke-dasharray: 678;
+stroke-dashoffset: 678;
+transition: stroke-dashoffset 1s linear;
+}
+
+/*text annoncant le temps restant*/
+@font-face {
+    font-family: BtC;
+    src: url("font-fam/AGRESSIVE.otf");
+  }
+  
+#timer{
+    fill: #e66767;
+    font-family: BtC;
+    font-size: 100px;
+    font-weight: bold;
+}
+/*fin du code relatif au timer*/
+/*fin du code relatif au jeu*/
+
+
+
+
+
+
+
+
+/*interface de parametrage*/
+
+/* bouton d'ouverture de l'interface*/
+.brain-button {
+  width: 135px;
+  height: 125px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-image: url("image/brain.png");
+  position: fixed;
+  top: 20px;
+  right: 30px;
+}
+
+/*division de l'interface*/
+.myDiv{
+  position: absolute; /* ou position: fixed; */
+   top: 10%; 
+   right: 120px; 
+  background-image: url(image/param.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 435px;
+  width: 500px;
+  border: 4px outset grey;
+  border-top-left-radius: 35px;
+  border-top-right-radius: 35px;
+  border-bottom-left-radius: 35px;
+  border-bottom-right-radius: 35px;
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+/*selecteur*/
+#selection{
+  width: 250px;
+  height: 75px;
+  text-align: center;
+  font-size: 30px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold ;
+  display: block;
+  margin: 0 auto;
+  margin-top: 10px;
+  border-radius: 8%;
+  
+}
+
+/* balise text de l'interface*/
+.myP{
+  font-family: 'Courier New', Courier, monospace;
+  color:  white;
+  text-align: center;
+  font-size: 45px;
+  font-weight: bold;
+  text-decoration: underline;
+  
+}
+
+/*bouton APPLIQUER les deux*/ 
+#apply{
+  display: block;
+  margin: 0 auto;
+  margin-top: 30px;
+  height: 70px;
+  width: 300px;
+  font-size: 28px;
+}
+.trie{
+  height: 70px;
+  width:400px;
+  background-image : url("image/ligne.png");
+  color:  #1d2f7d;
+  font-family:'Courier New', Courier, monospace;
+  font-size:45px;
+  border: 10px groove #4b4b4b;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;;
+  text-shadow: 1px 1px 1px #4b4b4b;
+  
+}

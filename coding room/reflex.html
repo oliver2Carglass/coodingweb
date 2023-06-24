@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="image/casselesnoix.png" />
+    <link rel= "stylesheet" href="stylereflex.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test de visée 🧠</title>
+    <script src =  "scriptreflex.js"></script>
+</head>
+<body>
+    <button id="save-button" class="circular-button">Save</button>
+    <button class="brain-button" onclick="depliant()"></button>
+    <button class="menu" onclick="menu()"></button>
+    <p id="scoring"><strong>SCORE : 0</strong></p>
+    <div class="chronometre" >
+        <svg class="progress-ring" width="250" height="250">
+            <circle class="progress-ring-circle" cx="120" cy="120" r="108" style="display: none;"></circle>
+            <text id="timer" x="120" y="145" text-anchor="middle" fill="white">  </text>
+        </svg>
+    </div>
+
+    <script>
+        var progressRingCircle = document.querySelector(".progress-ring-circle");
+        var duration = 30; // Durée en secondes
+
+        function appliquer(){
+            var select = document.getElementById("selection");
+            duration = select.value;
+            duration=duration*1
+        }
+       
+        function startCountdown() {
+            console.log(duration)
+            var saveButton = document.getElementById("save-button");
+            saveButton.disabled = true;
+            //affichage du chrono
+            var chrono = document.querySelector("circle")
+            chrono.style.display= "block"
+            var tempsrest = document.querySelector("text")
+            tempsrest.style.display = "block"
+            var timeLeft = duration;
+            var timer = setInterval(function() {
+              
+
+                var percent = ((duration - timeLeft) / duration) * 100;
+                var circumference = 678;
+                var offset = circumference - (percent / 100) * circumference;
+                progressRingCircle.style.strokeDashoffset = offset;
+
+                var timera=document.getElementById("timer")
+                timeLeft--;
+                timera.textContent=timeLeft
+                timera.style.fontWeight="bold"
+                console.log(timeLeft)
+                if (timeLeft < 0) {
+                    clearInterval(timer);
+                    des=document.getElementById("clickMe")
+                    des.remove()
+                    tempsrest.style.display = "none"
+                    chrono.style.display= "none"
+                    //destruction du cercle
+
+                    // Création du bouton de départ
+                    var butRestart = document.createElement("button");
+                    butRestart.textContent = "Commencer le jeu";
+                    butRestart.style.position = "absolute";
+                    butRestart.style.top = "95%";
+                    butRestart.style.left = "50%";
+                    butRestart.style.transform = "translate(-50%, -50%)";
+                    butRestart.style.height = "60px";
+                    butRestart.style.width = "400px";
+                    butRestart.style.backgroundImage = "url('image/tableau.jpg')";
+                    butRestart.style.color = "white";
+                    butRestart.id="clickMe"
+
+                    // Ajout de l'événement onclick
+                    butRestart.onclick = function() {
+                    startCountdown();
+                    spawn();
+                    };
+
+                    // Ajout du bouton de départ au corps du document
+                    var jeu = document.querySelector("body");
+                    jeu.appendChild(butRestart);
+                    resetScoring()
+                    saveButton.disabled = true;
+                    return;
+
+
+                    
+                    
+                }
+            }, 1000);
+        }
+
+        
+    </script>
+    <div id="jeuReflex">
+        <table id="Jeu">
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <button style="position: absolute; top: 95%; left: 50%; transform: translate(-50%, -50%); height: 60px; width: 400px; background-image: url('image/tableau.jpg'); color: white;" id="clickMe"  onclick="startCountdown(),spawn()"><strong>Commencer le jeu</strong></button>
+</body>
+</html>
+

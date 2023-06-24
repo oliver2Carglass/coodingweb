@@ -1,0 +1,419 @@
+/*memoire.html*/
+
+/*style pour le texte annnonciateur du niveau actuel*/
+#nombre1{
+  color :#dfd7cc;
+  font-size: 85px;
+  text-align: center;
+  font-family:'Courier New', Courier, monospace;
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5), -4px -4px 8px rgba(255, 255, 255, 0.5);
+  text-decoration:underline ;
+}
+
+
+
+/* definition  des polices utilisées sur le site, nous utilisons aussi AGRESSIVE.otf sur le jeu de visé et 'Courier New', Courier, monospace*/
+@font-face {
+  font-family: BtC;
+  src: url("font-fam/Sketch3D.otf");
+}
+
+
+@font-face {
+  font-family: BtC2;
+  src: url("font-fam/CAVEMAN_.TTF");
+}
+
+
+/* le nombre aléatoire qui s'affiche*/
+#nombre{
+  color : #dfd7cc;
+  font-size: 65px;
+  text-align: center;
+  font-style: strong ;
+  font-family: BtC,Btc2 ;
+  
+}
+
+
+/* division contenant le jeu de mémoire*/
+.JeuMemoire{
+  background-color: white;
+  width: 900px;
+  height: 820px;
+  background-image: url("image/tableau.jpg");
+  background-size: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 4px outset grey;
+  border-top-left-radius: 35px;
+  border-top-right-radius: 35px;
+  border-bottom-left-radius: 35px;
+  border-bottom-right-radius: 35px;
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+  
+
+/*definition du back ground pour toute les pages*/
+body{
+  
+  background-image: url("image/bodyBackground.jpg");
+  
+}
+
+/*division comprenant l'input et le bouton niveau suivant*/
+.reponse{
+  text-align: center;
+}
+/*division comprenant le bouton essayer et sauvegarder*/
+.try{
+  margin-top: 25px;
+  text-align: center;
+}
+
+/* input pour entrer la reponse*/
+#myInput{
+  text-align: center;
+  height: 50px;
+  width: 300px;
+  font-size: 25px;
+  font-family:'Courier New', Courier, monospace;
+  font-size:25px;
+  border: 10px groove #4b4b4b;
+  font-weight: bold;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;;
+ 
+}
+
+/* bouton NIVEAU SUIVANT*/
+#submit-button{
+  height: 50px;
+  font-weight: bold;
+  border: 10px groove #4b4b4b;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;;
+  text-shadow: 1px 1px 1px #4b4b4b;
+  height: 68px;
+  padding-left: 10px;
+}
+
+/*bouton ESSAYER*/
+.trie{
+  height: 70px;
+  width:400px;
+  background-image : url("image/ligne.png");
+  color:  #1d2f7d;
+  font-family:'Courier New', Courier, monospace;
+  font-size:45px;
+  border: 10px groove #4b4b4b;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;;
+  text-shadow: 1px 1px 1px #4b4b4b;
+  
+}
+
+/*bouton SAUVEGARDER*/
+#saveBut{
+  margin-top: 25px;
+  height: 95px;
+  width:350px;
+  background-image : url("image/ligne.png");
+  color:  #ac3235;
+  font-family:'Courier New', Courier, monospace;
+  font-size:30px;
+  border: 10px groove #4b4b4b;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;;
+  text-shadow: 1px 1px 1px #4b4b4b;
+  
+}
+
+#saveBut:disabled{
+  background-image: none;
+  
+}
+
+
+
+
+/* animation des bouton ESSAYER, SAUVEGARDER et NIVEAU SUIVANT*/
+.trie:active,#submit-button:active,#saveBut:active{
+  animation: mon-effet 1s ease;
+}
+
+@keyframes mon-effet {
+  0% {
+    transform: scale(1);
+  }
+  25%{
+      transform: scale(0.7);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75%{
+      transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+/* fin du code relatif a la division du jeu de memoire*/
+
+
+
+
+
+
+
+
+
+
+/* code relatif au bouton du parametrage dans le coin haut droit*/
+
+/* bouton */
+.brain-button {
+  width: 135px;
+  height: 125px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-image: url("image/brain.png");
+  position: fixed;
+  top: 20px;
+  right: 30px;
+}
+
+
+/* division responsable de l'interface*/
+.myDiv{
+  position: absolute; /* ou position: fixed; */
+   top: 10%; 
+   right: 120px; 
+  background-image: url(image/param.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 475px;
+  width: 500px;
+  border: 4px outset grey;
+  border-top-left-radius: 35px;
+  border-top-right-radius: 35px;
+  border-bottom-left-radius: 35px;
+  border-bottom-right-radius: 35px;
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+/*inputs de l'interface*/
+.myInput{
+  text-align: center;
+  height: 55px;
+  width: 300px;
+  font-size: 25px;
+  font-family:'Courier New', Courier, monospace;
+  font-size:25px;
+  border: 10px groove #4b4b4b;
+  font-weight: bold;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  display: block;
+  margin: 0 auto;
+  
+  
+}
+/* champs de text de l'interface*/
+.myP{
+  font-family: 'Courier New', Courier, monospace;
+  color:  #dfd7cc;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: underline;
+  
+}
+
+
+/* bouton appliquer*/
+#apply{
+  display: block;
+  margin: 0 auto;
+  margin-top: 15px;
+  height: 50px;
+  width: 300px;
+  font-size: 28px;
+}
+
+/*fin du code relatif uniquement a mémoire.html*/
+
+
+
+
+
+
+
+
+
+
+
+/* code css relatif au bouton menu en haut à gauche*/
+
+/*division du menu de navigation*/
+.myDiv2{
+  position: fixed;
+   top: 100px;
+   bottom: 0;
+   left: 0;
+  
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border: solid #4b4b4b 2px;
+}
+
+/*bouton menu de navigation*/
+.menu{
+  height: 92px;
+  width: 97px;
+  background-image: url("image/menu.png");
+  background-size: cover ;
+}
+/* animation de ce bouton*/
+.menu:active{
+  animation : rotation linear infinite 1s;
+
+}
+
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  12.5% {
+    transform: rotate(45deg);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  37.5% {
+    transform: rotate(135deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  62.5% {
+    transform: rotate(225deg);
+  }
+  75% {
+    transform: rotate(270deg);
+  }
+  87.5% {
+    transform: rotate(315deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+/* bouton de navigation du menu*/
+.menuBut{
+  height: 60px;
+  width: 350px;
+  border: solid #4b4b4b 2px;
+  font-weight: bold;
+  font-size: 18px;
+}
+/*fin du code relatif au menu de naiguation dans le coin haut gauche*/
+
+
+
+
+
+
+
+
+
+
+/* code relatif à aPropos.html*/
+
+/* balise de text*/
+.textAPropos{
+  padding: 10%;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 35px;
+  color: #dfd7cc;
+  text-align: center;
+  font-weight: bold;
+}
+/*fin du code relatif à aPropos.html*/
+
+
+
+
+
+
+
+
+
+
+
+/* code relatif a help.html*/
+
+/*balise de text*/
+.textHelp{
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 25px;
+  color:#dfd7cc;
+  font-weight: bold;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+/*L'entête' de help*/
+h1{
+  margin-top: 20px;
+  text-decoration: underline;
+  text-align: center;
+  font-size: 40px;
+  font-family: 'Courier New', Courier, monospace;
+  color:#dfd7cc;
+  font-weight: bold; 
+}
+/* fin du code relatif a help.htlm*/
+
+
+
+
+
+
+
+
+
+
+/* code relatif a tableeauMemo.html*/
+
+/*parametrage du tableau*/
+table {
+  border-collapse: collapse;
+}
+
+th, td {
+  text-align: center;
+  width: 65px;
+  height: 40px;
+  border: 2px double  black;
+  background-color: white;
+  
+}
+
+/*
+#txtExpliq{
+  background-image: url("image/tableau.jpg");
+  color: #dfd7cc;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 25px;
+  padding-left: 10%;
+  padding-right: 10%;
+  background-size: cover;
+}
+*/
+
+/*fin du code realtif au code de tableaMemo*/

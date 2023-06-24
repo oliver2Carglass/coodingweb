@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link rel="icon" type="image/png" href="image/casselesnoix.png" />
+    <link rel= "stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=0.67">
+    <title>Memory test 🧠</title>
+    <script src =  "script.js"></script>
+</head>
+<body>
+    <button class="brain-button" onclick="depliant()"></button>
+    <button class="menu" onclick="menu()"></button>
+    <div class="JeuMemoire">
+        <p id="nombre1"><strong>Niveau: 1</strong></p>
+        <p id="nombre">préparez vos cerveaux!</p>
+        
+        <div class="reponse">
+            <input type="text" id="myInput" placeholder="Entrez le nombre">
+            <button onclick="game()" id="submit-button">     Niveau suivant</button>
+        </div>
+        
+        
+        <div class="try">
+            <button class="trie" onclick="game2()"><strong>ESSAYER</strong></button>
+            <br>
+            <button disabled id="saveBut" onclick="save()"><strong>SAUVEGARDER</strong></button>
+        </div>
+    </div>
+
+    
+</body>
+</html>
